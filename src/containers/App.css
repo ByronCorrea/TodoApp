@@ -9,7 +9,7 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   width: 35%;
   height: auto;
 
