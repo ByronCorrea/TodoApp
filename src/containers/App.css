@@ -1,0 +1,452 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 35%;
+  height: auto;
+
+  text-align: center;
+  margin: auto auto;
+  border-radius: 30px;
+  padding-bottom: 6rem;
+  box-shadow: 0 8px 32px rgba(43, 42, 42, 0.418);
+  transition: all 0.1s ease;
+  backdrop-filter: blur(10000px);
+}
+
+.App:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(43, 42, 42, 0.418);
+}
+
+h1 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+#check {
+  margin-right: 1rem;
+}
+
+.todo-form {
+  margin-bottom: 32px;
+}
+
+.todo-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #ffdd00;
+  outline: none;
+  width: 50%;
+  background: transparent;
+  color: #dee2e6;
+}
+
+.todo-input::placeholder {
+  color: #adb5bd;
+}
+
+.todo-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: hsla(27, 87%, 67%, 1);
+
+  background: linear-gradient(
+    270deg,
+    hsla(27, 87%, 67%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.todo-button:hover {
+  background: linear-gradient(
+    270deg,
+    hsla(27, 87%, 67%, 1) 20%,
+    hsla(58, 100%, 68%, 1) 80%
+  );
+}
+
+.todo-input.edit {
+  border: 2px solid #149fff;
+}
+
+.todo-button.edit {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+  padding: 16px 22px;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 100%,
+    rgba(255, 84, 17, 1) 50%
+  );
+
+  padding: 16px;
+  border-radius: 5px;
+  width: 70%;
+  cursor: pointer;
+}
+
+.todo-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 130, 20, 1) 0%,
+    rgba(255, 100, 17, 1) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 1) {
+  background: hsla(280, 84%, 41%, 1);
+
+  background: linear-gradient(
+    0deg,
+    hsla(280, 84%, 41%, 0.8) 0%,
+    hsla(218, 97%, 56%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    0deg,
+    hsla(280, 84%, 41%, 0.8) 0%,
+    hsla(218, 97%, 56%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    0deg,
+    hsla(280, 84%, 41%, 0.8) 0%,
+    hsla(218, 97%, 56%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8711C1", endColorstr="#2472FC", GradientType=1 );
+}
+
+.todo-row:nth-child(4n + 1):hover {
+  background: linear-gradient(
+    0deg,
+    hsla(280, 120%, 41%, 0.8) 0%,
+    hsla(218, 110%, 56%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    0deg,
+    hsla(280, 120%, 41%, 0.8) 0%,
+    hsla(218, 110%, 56%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    0deg,
+    hsla(280, 120%, 41%, 0.8) 0%,
+    hsla(218, 110%, 56%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8711C1", endColorstr="#2472FC", GradientType=1 );
+}
+
+.todo-row:nth-child(4n + 2) {
+  background: hsla(33, 100%, 53%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", endColorstr="#FFF95B", GradientType=1 );
+}
+
+.todo-row:nth-child(4n + 2):hover {
+  background: linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(53, 100%, 68%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(53, 100%, 68%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(33, 100%, 53%, 1) 0%,
+    hsla(53, 100%, 68%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF930F", endColorstr="#FFF95B", GradientType=1 );
+}
+
+.todo-row:nth-child(4n + 3) {
+  background: hsla(217, 100%, 50%, 1);
+
+  background: linear-gradient(
+    90deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+}
+
+.todo-row:nth-child(4n + 3):hover {
+  background: linear-gradient(
+    90deg,
+    hsla(217, 100%, 60%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(217, 100%, 60%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(217, 100%, 60%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+}
+
+.icons {
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  align-content: space-around;
+  position: relative;
+}
+
+.delete-icon {
+  margin-right: 1px;
+  color: red;
+}
+
+.delete-icon:hover {
+  font-size: 20px;
+}
+
+.edit-icon {
+  color: white;
+}
+
+.edit-icon:hover {
+  font-size: 20px;
+}
+
+/* antes */
+
+#root {
+  height: 100%;
+}
+
+html,
+body {
+  min-height: 200vh;
+  height: 100%;
+}
+
+h3 {
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3rem;
+}
+
+span {
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: #202020;
+  color: white;
+  height: 100%;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.light-mode {
+  background-color: #fbfefb;
+  color: black;
+  height: 100%;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: hsla(27, 87%, 67%, 1);
+
+  background: linear-gradient(
+    270deg,
+    hsla(27, 87%, 67%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.switch-checkbox {
+  padding: 15px;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(27, 87%, 67%, 1);
+
+  background: linear-gradient(
+    0deg,
+    hsla(20, 47%, 67%, 1) 0%,
+    hsla(58, 60%, 68%, 1) 100%
+  );
+  border-radius: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(27, 87%, 67%, 1);
+
+  background: linear-gradient(
+    0deg,
+    hsla(20, 87%, 67%, 1) 0%,
+    hsla(58, 100%, 68%, 1) 100%
+  );
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+  .App {
+    width: 90%;
+  }
+}
