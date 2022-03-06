@@ -6,9 +6,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
-      {/* <div>
-        <h3>{darkMode ? "DARK" : "LIGHT"} MODE</h3>
-      </div> */}
       <div className="container">
         <span style={{ color: darkMode ? "#e9ecef" : "yellow" }}>
           <i class="bx bxs-sun"></i>
